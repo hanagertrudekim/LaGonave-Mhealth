@@ -7,7 +7,7 @@ import Login from './pages/Auth/LoginPage/Login';
 import RegisterForm from './pages/patient/RegisterForm';
 import DiagnosisForm from './pages/patient/DiagnosisForm';
 import Identification from './pages/IdentificationPage/Identification';
-import SearchPatient from './pages/SearchPatient/SearchPatient';
+import SearchPatient from './pages/patient/SearchPatient/SearchPatient';
 
 function App() {
   return (
