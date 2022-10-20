@@ -1,4 +1,4 @@
-import { Button, Form, Input } from 'antd';
+import { Button, Form, Input, Radio, Space } from 'antd';
 import React from 'react'
 import styled from 'styled-components'
 import PatientList from './PatientList';
@@ -12,9 +12,8 @@ const Wrap = styled.div`
 
 const Searchbar = styled.div`
   width: 65vw;
-  height: 200px;
   margin-top: 100px;
-  padding: 60px;
+  padding: 50px;
   background: #fbfbfb;
   border: 1px solid #d9d9d9;
   border-radius: 2px;
@@ -22,7 +21,7 @@ const Searchbar = styled.div`
 `;
 
 const SearchButton = styled(Button)`
-  margin-left: 10px;
+  margin-left: 30px;
 `
 
 const PatientListWrap = styled.div`
@@ -30,6 +29,7 @@ const PatientListWrap = styled.div`
   margin-top: 40px;
   border: 1px solid #d9d9d9;
 `;
+
 
 export default function SearchPatient() {
 
@@ -51,7 +51,7 @@ export default function SearchPatient() {
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
           autoComplete="off"
-          layout='inline'
+          layout="inline"
         >
           <Form.Item
             label="Username"
@@ -61,17 +61,23 @@ export default function SearchPatient() {
             <Input />
           </Form.Item>
           <Form.Item
-            label="BirthDate"
-            name="BirthDate"
-            rules={[{ required: true, message: 'Please input your username!' }]}
+            label="Date of Birth"
+            name="Date of Birth"
+            rules={[{ required: true, message: 'Please input your Date of Birth!' }]}
           >
             <Input placeholder="YY/MM/DD" />
           </Form.Item>
-          <Form.Item>
-            <SearchButton type="primary" htmlType="submit">
-              Search
-            </SearchButton>
-          </Form.Item>
+          <Radio.Group>
+            <Radio value="male">M</Radio>
+            <Radio value="Female">F</Radio>
+          </Radio.Group>
+          <Space align="end">
+            <Form.Item>
+              <SearchButton type="primary" htmlType="submit">
+                Search
+              </SearchButton>
+            </Form.Item>
+          </Space>
         </Form>
       </Searchbar>
       <PatientListWrap>

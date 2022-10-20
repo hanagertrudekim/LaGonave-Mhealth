@@ -4,10 +4,10 @@ import { Route } from 'react-router';
 import './App.css'
 import Home from './pages/Home/Home';
 import Login from './pages/Auth/LoginPage/Login';
-import NewPatient from './pages/patient/NewPatient';
-import SecondForm from './pages/patient/SecondForm';
-import Identification from './pages/Auth/IdentificationPage/Identification';
-import SearchPatient from './pages/Auth/SearchPatient/SearchPatient';
+import RegisterForm from './pages/patient/RegisterForm';
+import DiagnosisForm from './pages/patient/DiagnosisForm';
+import Identification from './pages/IdentificationPage/Identification';
+import SearchPatient from './pages/SearchPatient/SearchPatient';
 
 function App() {
   return (
@@ -16,9 +16,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/identification" element={<Identification />} />
-        <Route path="/patient/new-patient" element={<NewPatient />} />
-        <Route path="/patient/auth-patient" element={<SearchPatient />} />
-        <Route path="/patient/second-form" element={<SecondForm />} />
+        <Route path="/patient/register-form" element={<RegisterForm />} />
+        <Route path="/patient/diagnosis-form" element={<DiagnosisForm />} />
+        <Route path="/patient/search-patient" element={<SearchPatient />} />
       </Routes>
     </div>
   );

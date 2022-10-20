@@ -55,7 +55,7 @@ const StyledRadio = styled(Radio)`
   }
 `;
 
-export default function Login() {
+export default function Identification() {
    const [value, setValue] = useState(0);
 
    const onChange = (e: RadioChangeEvent) => {
@@ -88,7 +88,7 @@ export default function Login() {
               htmlType="submit"
               className="login-form-button"
               disabled={value === 0}
-              onClick={() => (value === 1 ? navigate('/patient/auth-patient') : navigate('/patient/new-patient'))}
+              onClick={() => (value === 1 ? navigate('/patient/search-patient') : navigate('/patient/register-form'))}
             >
               next
             </StyledButton>
