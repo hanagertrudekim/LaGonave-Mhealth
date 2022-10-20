@@ -75,7 +75,7 @@ export default function Login() {
       <Content>
         <Title>LaGonave - Mhealth</Title>
         <StyledRadioGroup onChange={onChange} value={value}>
-          <StyledRadio value={1}>Church-staff</StyledRadio>
+          <StyledRadio value={1}>Staff</StyledRadio>
           <StyledRadio value={2}>Doctor</StyledRadio>
         </StyledRadioGroup>
         <Form
