@@ -1,0 +1,15 @@
+services:
+  lagonave_pgsql:
+    image: postgres:14.5
+    restart: unless-stopped 
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: lagonave-mhealth
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+    ports:
+      - 5433:5432
+
+volumes:
+  pgdata:
