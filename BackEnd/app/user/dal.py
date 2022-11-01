@@ -1,4 +1,3 @@
-from functools import lru_cache
 from typing import Union
 import uuid
 
@@ -55,6 +54,5 @@ class UserDAL:
         return user
 
 
-@lru_cache
 def get_user_dal(db=Depends(get_db)) -> UserDAL:
     return UserDAL(db)

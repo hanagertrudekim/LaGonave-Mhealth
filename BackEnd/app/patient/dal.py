@@ -1,5 +1,3 @@
-from functools import lru_cache
-
 from fastapi import Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 from app.db.pgsql.session import get_db
@@ -19,6 +17,5 @@ class PatientDAL:
         return new_patient.full_name
 
 
-@lru_cache
 def get_patient_dal(db=Depends(get_db)) -> PatientDAL:
     return PatientDAL(db)
