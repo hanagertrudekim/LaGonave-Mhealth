@@ -30,6 +30,10 @@ const PatientListWrap = styled.div`
   border: 1px solid #d9d9d9;
 `;
 
+const SearchInput = styled(Input)`
+  width: 260px;
+`
+
 
 export default function SearchPatient() {
 
@@ -45,8 +49,6 @@ export default function SearchPatient() {
     <Wrap>
       <Searchbar>
         <Form
-          labelCol={{ span: 8 }}
-          wrapperCol={{ span: 16 }}
           initialValues={{ remember: true }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
@@ -54,23 +56,12 @@ export default function SearchPatient() {
           layout="inline"
         >
           <Form.Item
-            label="Username"
-            name="username"
-            rules={[{ required: true, message: 'Please input your username!' }]}
+            label="phone_number"
+            name="phone_number"
+            rules={[{ required: true, message: 'Please input your phone number!' }]}
           >
-            <Input />
+            <SearchInput />
           </Form.Item>
-          <Form.Item
-            label="Date of Birth"
-            name="Date of Birth"
-            rules={[{ required: true, message: 'Please input your Date of Birth!' }]}
-          >
-            <Input placeholder="YY/MM/DD" />
-          </Form.Item>
-          <Radio.Group>
-            <Radio value="male">M</Radio>
-            <Radio value="Female">F</Radio>
-          </Radio.Group>
           <Space align="end">
             <Form.Item>
               <SearchButton type="primary" htmlType="submit">
