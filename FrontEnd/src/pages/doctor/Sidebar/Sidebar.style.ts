@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const SiderWrap = styled.div`
+export const SidebarWrap = styled.div`
 `
 
 export const Logo = styled.div`

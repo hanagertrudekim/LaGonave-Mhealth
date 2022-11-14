@@ -1,10 +1,11 @@
 import { ControlOutlined, FileAddOutlined, SaveOutlined, UserOutlined } from '@ant-design/icons';
 import { Layout, Menu, MenuProps } from 'antd';
 import React from 'react'
-import * as S from './Sider.styled'
+import * as S from './Sidebar.style'
 
 
-export default function Sider() {
+export default function Sidebar() {
+  
   const { Sider } = Layout;
   type MenuItem = Required<MenuProps>['items'][number];
 
@@ -26,7 +27,7 @@ export default function Sider() {
   ];
 
   return (
-    <S.SiderWrap>
+    <S.SidebarWrap>
       <Sider
         style={{
           overflow: 'auto',
@@ -41,6 +42,6 @@ export default function Sider() {
         <S.Logo className="logo" />
         <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} items={items} />
       </Sider>
-    </S.SiderWrap>
+    </S.SidebarWrap>
   );
 }

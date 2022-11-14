@@ -26,7 +26,7 @@ const StyledList = styled(List)`
 const fakeDataUrl = 'https://randomuser.me/api/?results=20&inc=name,gender,email,nat,picture&noinfo';
 const ContainerHeight = 350;
 
-const PatientList = () => {
+const SearchList = () => {
   const [data, setData] = useState<UserItem[]>([]);
 
   const appendData = () => {
@@ -66,4 +66,4 @@ const PatientList = () => {
   );
 };
 
-export default PatientList;
+export default SearchList;
