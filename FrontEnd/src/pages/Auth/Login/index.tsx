@@ -15,15 +15,13 @@ export default function Login() {
   const [form] = Form.useForm();
   const [, forceUpdate] = useState({});
   const dispatch = useAppDispatch();
-  
   const navigate = useNavigate();
+
+  const [loginUser, { data: loginData, isSuccess: isLoginSuccess }] = useLoginUserMutation();
 
   useEffect(() => {
     forceUpdate({});
   }, []);
-
-  const [loginUser, { data: loginData, isSuccess: isLoginSuccess }] = useLoginUserMutation();
-
 
   const onSubmit = async (values: LoginValue) => {
     if (values) {
@@ -33,8 +31,8 @@ export default function Login() {
   
   useEffect(() => {
     if (isLoginSuccess) {
-      dispatch(setUser({ token: loginData.access_token, name:loginData.username }));
-      value === 1 ? navigate('/identification') : navigate('/')
+      dispatch(setUser({ token: loginData.access_token, user_id: loginData.user_id }));
+      value === 1 ? navigate('patient/identification') : navigate('/doctor/home');
     }
   },[isLoginSuccess, value, navigate, loginData, dispatch])
 

@@ -24,8 +24,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Navigate to='/login' replace/>} />
           <Route path="/login" element={<Login />} />
-          <Route path="/doctor" element={<Doctor />} />
-          <Route path="/identification" element={<RegisterType />} />
+          <Route path="/doctor/home" element={<Doctor />} />
+          <Route path="patient/identification" element={<RegisterType />} />
           <Route path="/patient/register-form" element={<RegisterForm />} />
           <Route path="/patient/diagnosis-form" element={<Diagnosis />} />
           <Route path="/patient/search-patient" element={<SearchPatient />} />
