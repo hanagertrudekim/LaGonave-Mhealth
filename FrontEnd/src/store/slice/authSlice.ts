@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Cookies } from "react-cookie";
 import { RootState } from "..";
 
 export interface AuthState {
@@ -19,8 +20,9 @@ export const authSlice = createSlice({
       state,
       action: PayloadAction<{ user_id: string; token: string }>,
     ) => {
-      localStorage.setItem(
-        "name",
+      const cookies = new Cookies()
+      cookies.set(
+        "token",
         JSON.stringify({
           name: action.payload.user_id,
           token: action.payload.token,
