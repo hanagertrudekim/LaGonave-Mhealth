@@ -1,21 +1,22 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
-import { authApi } from './api/authApi';
 import logger from 'redux-logger';
-import authReducer from './slice/authSlice'
+import { authApi } from './api/auth';
+import { patientApi } from './api/patient';
+import authReducer from './slice/authSlice';
 
-export const store = configureStore({
+const store = configureStore({
   reducer: {
     auth: authReducer,
     [authApi.reducerPath]: authApi.reducer,
+    [patientApi.reducerPath]: patientApi.reducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger, authApi.middleware),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(logger, authApi.middleware, patientApi.middleware),
 });
 
 export type AppDispatch = typeof store.dispatch;
+setupListeners(store.dispatch);
 
 export type RootState = ReturnType<typeof store.getState>;
-
-setupListeners(store.dispatch)
-
 export default store;
