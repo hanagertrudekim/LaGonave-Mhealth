@@ -1,48 +1,52 @@
-import { Form, Space } from 'antd';
-import React from 'react'
-import * as S from './Search.style'
+import { Form, Spin } from 'antd';
+import React, { useState, Suspense } from 'react';
+import CustomForm from '../../../components/common/CustomForm';
+import { useGetPatientsQuery } from '../../../store/api/patient';
+import * as S from './Search.style';
 import SearchList from './SearchList';
 
 export default function SearchPatient() {
+  const [number, setNumber] = useState<number | null>(null);
 
-  const onFinish = (values: any) => {
-    console.log('Success:', values);
+  const { data: patientsData, error, isLoading } = useGetPatientsQuery(number);
+
+  const onFinish = (values: number) => {
+    setNumber(values);
   };
 
-   const onFinishFailed = (errorInfo: any) => {
+  const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo);
   };
 
+  console.log(patientsData);
+
   return (
-    <S.Wrap>
-      <S.Searchbar>
-        <Form
-          initialValues={{ remember: true }}
-          onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
-          autoComplete="off"
-          layout="inline"
-        >
-          <Form.Item
-            label="phone_number"
-            name="phone_number"
-            rules={[{ required: true, message: 'Please input your phone number!' }]}
+    patientsData && (
+      <S.Wrap>
+        <S.Searchbar>
+          <Form
+            initialValues={{ remember: true }}
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+            autoComplete="off"
+            layout="inline"
           >
-            <S.SearchInput />
-          </Form.Item>
-          <Space align="end">
+            <CustomForm.Input
+              label="phone_number"
+              name="phone_number"
+              style={{ width: '20vw' }}
+            ></CustomForm.Input>
             <Form.Item>
-              <S.SearchButton type="primary" htmlType="submit">
-                Search
-              </S.SearchButton>
+              <CustomForm.Button htmlType="submit">Search</CustomForm.Button>
             </Form.Item>
-          </Space>
-        </Form>
-      </S.Searchbar>
-      <S.PatientListWrap>
-        <SearchList />
-      </S.PatientListWrap>
-    </S.Wrap>
+          </Form>
+        </S.Searchbar>
+        <S.PatientListWrap>
+          <Suspense fallback={<Spin />}>
+            <SearchList list={patientsData} />
+          </Suspense>
+        </S.PatientListWrap>
+      </S.Wrap>
+    )
   );
 }
-
