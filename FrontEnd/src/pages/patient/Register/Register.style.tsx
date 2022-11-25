@@ -1,5 +1,5 @@
-import { Button, Form } from 'antd';
-import styled from 'styled-components'
+import { Form } from 'antd';
+import styled from 'styled-components';
 
 export const Wrap = styled.div`
   display: flex;
@@ -9,20 +9,17 @@ export const Wrap = styled.div`
 `;
 
 export const StyledForm = styled(Form)`
-  width: 40vw;
   height: auto;
-  padding: 60px;
+  padding: 45px;
 `;
 
 export const StepWrap = styled.div`
-  margin-top: 60px;
+  margin: 65px 0px 30px 0px;
   width: 50vw;
 `;
 
-export const StyledFormItem = styled(Form.Item)`
-  margin-bottom: 35px;
+export const ButtonWrap = styled.div`
+  margin-top: 50px;
 `;
 
-export const StyledButton = styled(Button)`
-  margin-top: 20px;
-`;
+export const InputWrap = styled(Form.Item)``;
