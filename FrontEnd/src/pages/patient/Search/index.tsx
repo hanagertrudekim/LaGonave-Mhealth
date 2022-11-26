@@ -21,32 +21,34 @@ export default function SearchPatient() {
   console.log(patientsData);
 
   return (
-    patientsData && (
-      <S.Wrap>
-        <S.Searchbar>
-          <Form
-            initialValues={{ remember: true }}
-            onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
-            autoComplete="off"
-            layout="inline"
-          >
-            <CustomForm.Input
-              label="phone_number"
-              name="phone_number"
-              style={{ width: '20vw' }}
-            ></CustomForm.Input>
-            <Form.Item>
-              <CustomForm.Button htmlType="submit">Search</CustomForm.Button>
-            </Form.Item>
-          </Form>
-        </S.Searchbar>
-        <S.PatientListWrap>
-          <Suspense fallback={<Spin />}>
-            <SearchList list={patientsData} />
-          </Suspense>
-        </S.PatientListWrap>
-      </S.Wrap>
-    )
+    <>
+      {patientsData && (
+        <S.Wrap>
+          <S.Searchbar>
+            <Form
+              initialValues={{ remember: true }}
+              onFinish={onFinish}
+              onFinishFailed={onFinishFailed}
+              autoComplete="off"
+              layout="inline"
+            >
+              <CustomForm.Input
+                label="phone_number"
+                name="phone_number"
+                style={{ width: '20vw' }}
+              ></CustomForm.Input>
+              <Form.Item>
+                <CustomForm.Button htmlType="submit">Search</CustomForm.Button>
+              </Form.Item>
+            </Form>
+          </S.Searchbar>
+          <S.PatientListWrap>
+            <Suspense fallback={<Spin />}>
+              <SearchList list={patientsData} />
+            </Suspense>
+          </S.PatientListWrap>
+        </S.Wrap>
+      )}
+    </>
   );
 }
