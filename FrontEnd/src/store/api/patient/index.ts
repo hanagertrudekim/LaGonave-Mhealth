@@ -7,22 +7,24 @@ export const patientApi = createApi({
   tagTypes: ['patient'],
   baseQuery: fetchBaseQuery({
     baseUrl: `${API_PATH}`,
-  }), 
+  }),
+  keepUnusedDataFor: 30,
   endpoints: (builder) => ({
 
-    getPatients: builder.query<PatientTableInfo[], number | null>({
+    getPatients: builder.query<PatientTableInfo, number | null>({
       query: (phone_number) => ({ url: `/api/patients?phone_number=${phone_number}` }),
       providesTags: ['patient'],
+      keepUnusedDataFor: 5,
     }),
 
-    addPatient: builder.mutation<PatientTableInfo[],PatientInfo>({
-      query: () => {
-        return ({
-          url: '/api/patient',
+    addPatient: builder.mutation<PatientInfo, Partial<PatientInfo>>({
+      query: (body) => ({
+          url: '/api/patients',
           method: 'POST',
-        })
-      },
-    }),
+          body
+        }),
+        invalidatesTags: ['patient'],
+      }),
   }),
 });
 

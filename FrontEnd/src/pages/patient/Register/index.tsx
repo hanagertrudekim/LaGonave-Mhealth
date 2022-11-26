@@ -1,29 +1,25 @@
 import React from 'react';
 import useStep from '../useStep';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import * as S from './Register.style';
 import { REGISTER_VALIDATE_MESSAGE } from '../../../constant/validateMessage';
 import CustomForm from '../../../components/common/CustomForm';
 import { GENDER_OPTION } from '../../../constant';
+import usePatientMutation from '../usePatientMutation';
+// import { PatientInfo } from '../../../model/patient';
 
 export default function RegisterForm() {
   const { StepComponents } = useStep();
-  const navigate = useNavigate();
-
-  const onFinish = (values: any) => {
-    console.log(values);
-    //TODO: Add client register api
-    navigate('/patient/diagnosis-form');
-  };
+  const { registerPatient } = usePatientMutation();
 
   return (
     <S.Wrap>
       <S.StepWrap>
         <StepComponents />
       </S.StepWrap>
-      <S.StyledForm
+      <CustomForm
         name="nest-messages"
-        onFinish={onFinish}
+        onFinish={registerPatient}
         validateMessages={REGISTER_VALIDATE_MESSAGE}
       >
         <S.InputWrap label="name">
@@ -85,7 +81,7 @@ export default function RegisterForm() {
         <S.ButtonWrap>
           <CustomForm.Button htmlType="submit">submit</CustomForm.Button>
         </S.ButtonWrap>
-      </S.StyledForm>
+      </CustomForm>
     </S.Wrap>
   );
 }
