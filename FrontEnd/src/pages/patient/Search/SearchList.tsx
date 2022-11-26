@@ -1,30 +1,36 @@
-import { Avatar, List, message } from 'antd';
+import { Avatar, List } from 'antd';
 import VirtualList from 'rc-virtual-list';
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import * as S from './Search.style';
 import { PatientTableInfo } from '../../../model/patient';
+import { UserOutlined } from '@ant-design/icons';
 
-const StyledList = styled(List)`
-  padding: 30px;
-`;
+interface ListProps {
+  list: PatientTableInfo;
+}
 
 const ContainerHeight = 350;
 
-const SearchList = (list: PatientTableInfo[]) => {
+const SearchList = ({ list }: ListProps) => {
+  //TODO : array type props로 수정
+  console.log(list);
+  const navigate = useNavigate();
+
   return (
-    <StyledList>
-      <VirtualList data={list} height={ContainerHeight} itemHeight={41} itemKey="email">
+    <S.StyledList>
+      <VirtualList data={[list]} height={ContainerHeight} itemHeight={41} itemKey="email">
         {(item: PatientTableInfo) => (
-          <List.Item key={item.id.value}>
+          <S.ListItem key={item.id.value} onClick={() => navigate('/patient/diagnosis-form')}>
             <List.Item.Meta
-              avatar={<Avatar />}
-              title={<a href="https://ant.design">{item.full_name.value}</a>}
+              avatar={<Avatar size="large" icon={<UserOutlined />} />}
+              title={<div>{item.full_name.value}</div>}
             />
             <div>Content</div>
-          </List.Item>
+          </S.ListItem>
         )}
       </VirtualList>
-    </StyledList>
+    </S.StyledList>
   );
 };
 
