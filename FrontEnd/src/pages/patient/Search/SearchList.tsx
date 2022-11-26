@@ -10,7 +10,7 @@ interface ListProps {
   list: PatientTableInfo;
 }
 
-const ContainerHeight = 350;
+const ContainerHeight = 450;
 
 const SearchList = ({ list }: ListProps) => {
   //TODO : array type props로 수정
@@ -19,11 +19,11 @@ const SearchList = ({ list }: ListProps) => {
 
   return (
     <S.StyledList>
-      <VirtualList data={[list]} height={ContainerHeight} itemHeight={41} itemKey="email">
+      <VirtualList data={[list]} height={ContainerHeight} itemHeight={40} itemKey="email">
         {(item: PatientTableInfo) => (
           <S.ListItem key={item.id.value} onClick={() => navigate('/patient/diagnosis-form')}>
             <List.Item.Meta
-              avatar={<Avatar size="large" icon={<UserOutlined />} />}
+              avatar={<Avatar icon={<UserOutlined />} />}
               title={<div>{item.full_name.value}</div>}
             />
             <div>Content</div>

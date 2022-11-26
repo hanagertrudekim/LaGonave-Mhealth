@@ -23,12 +23,10 @@ export const PatientListWrap = styled.div`
   border: 1px solid #d9d9d9;
 `;
 
-export const StyledList = styled(List)`
-  padding: 30px;
-`;
+export const StyledList = styled(List)``;
 
 export const ListItem = styled(List.Item)`
-  padding: 13px;
+  padding: 25px;
   cursor: pointer;
   &:hover {
     background-color: #fafafa;
