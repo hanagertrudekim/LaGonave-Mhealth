@@ -1,6 +1,6 @@
 /* eslint-disable react/require-default-props */
 import { UploadOutlined } from '@ant-design/icons';
-import { Button, Col, Form, Input, Radio, Upload } from 'antd';
+import { Button, Checkbox, CheckboxProps, Col, Form, Input, Radio, Upload } from 'antd';
 import React, { ReactNode } from 'react';
 import type { UploadFile } from 'antd/es/upload/interface';
 import * as S from './CustomForm.style';
@@ -43,6 +43,7 @@ interface ButtonProps {
   htmlType?: 'button' | 'submit' | 'reset';
 }
 
+
 function GridRow({ label, children, gridColumns, rules }: GridProps) {
   return (
     <S.GridWrap label={label} gridColumns={gridColumns} rules={rules}>
@@ -66,6 +67,21 @@ function CusctomTextArea({ label, name, maxLength }: TextAreaProps) {
     <S.FormItem label={label} name={name}>
       <Input.TextArea showCount maxLength={maxLength} />
     </S.FormItem>
+  );
+}
+
+
+function CustomCheckbox({
+  name,
+  children,
+  disabled,
+}: CheckboxProps) {
+  return (
+    <S.FormItemCheckbox name={name} valuePropName="checked">
+      <Checkbox disabled={disabled}>
+        {children}
+      </Checkbox>
+    </S.FormItemCheckbox>
   );
 }
 
@@ -116,6 +132,7 @@ const CustomForm = Object.assign(Form, {
   TextArea: CusctomTextArea,
   Radio: CustomRadio,
   Upload: CustomUpload,
+  Checkbox: CustomCheckbox,
   Button: CustomButton,
 });
 

@@ -10,6 +10,8 @@ export const FormItem = styled(Form.Item)`
   padding-bottom: 9px;
 `;
 
+export const FormItemCheckbox = styled(Form.Item)``;
+
 export const StyledInput = styled(Input)``;
 
 export const StyledButton = styled(Button)``;
