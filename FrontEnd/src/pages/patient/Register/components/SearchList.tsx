@@ -2,8 +2,8 @@ import { Avatar, List } from 'antd';
 import VirtualList from 'rc-virtual-list';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import * as S from './Search.style';
-import { PatientTableInfo } from '../../../model/patient';
+import * as S from '../SearchPatient.style';
+import { PatientTableInfo } from '../../../../model/patient';
 import { UserOutlined } from '@ant-design/icons';
 
 interface ListProps {

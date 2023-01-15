@@ -2,8 +2,8 @@ import { Form, Spin } from 'antd';
 import React, { useState, Suspense } from 'react';
 import CustomForm from '../../../components/common/CustomForm';
 import { useGetPatientsQuery } from '../../../store/api/patient';
-import * as S from './Search.style';
-import SearchList from './SearchList';
+import * as S from './SearchPatient.style';
+import SearchList from './components/SearchList';
 
 export default function SearchPatient() {
   const [number, setNumber] = useState<number | null>(null);

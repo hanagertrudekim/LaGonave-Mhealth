@@ -3,22 +3,20 @@ import { Routes } from 'react-router-dom';
 import { Navigate, Route } from 'react-router';
 import './App.css';
 import Login from './pages/Auth/Login';
-import RegisterForm from './pages/patient/Register';
+import RegisterForm from './pages/patient/Register/RegisterPatient';
 import Doctor from './pages/doctor';
-import SearchPatient from './pages/patient/Search';
-import RegisterType from './pages/patient/RegisterType';
+import SearchPatient from './pages/patient/Register/SerchPatient';
+import RegisterType from './pages/patient/Register/RegisterType';
 import Diagnosis from './pages/patient/Diagnosis';
-import { useAppDispatch } from './hooks';
+import { useAppDispatch } from './utils/hooks';
 import { setUser } from './store/slice/authSlice';
 import Cookies from 'react-cookie/cjs/Cookies';
 
 function App() {
   const dispatch = useAppDispatch();
   const cookies = new Cookies();
-  const token = cookies.get('token') || '{}';
-
-  console.log(token);
-
+  const token = cookies.get('token');
+  
   useEffect(() => {
     dispatch(setUser(token));
   }, [dispatch, token]);

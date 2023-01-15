@@ -1,7 +1,7 @@
 import React from 'react';
-import useStep from '../useStep';
+import useStep from '../components/common/useStep';
 // import { useNavigate } from 'react-router-dom';
-import * as S from './Register.style';
+import * as S from './RegisterPatient.style';
 import { REGISTER_VALIDATE_MESSAGE } from '../../../constant/validateMessage';
 import CustomForm from '../../../components/common/CustomForm';
 import { GENDER_OPTION } from '../../../constant';

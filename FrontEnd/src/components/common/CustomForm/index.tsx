@@ -20,6 +20,8 @@ interface InputProps {
   placeholder?: string;
   rules?: Rule[];
   style?: React.CSSProperties;
+  prefix?: string;
+  suffix?: string;
 }
 
 interface TextAreaProps {
@@ -52,11 +54,11 @@ function GridRow({ label, children, gridColumns, rules }: GridProps) {
   );
 }
 
-function CustomInput({ label, name, colunms, placeholder, rules, style }: InputProps) {
+function CustomInput({ label, name, colunms, placeholder, rules, style, prefix, suffix }: InputProps) {
   return (
     <S.FormItem label={label} name={name} rules={rules} style={style}>
       <Col span={colunms}>
-        <S.StyledInput placeholder={placeholder} />
+        <S.StyledInput placeholder={placeholder}  prefix={prefix} suffix={suffix} />
       </Col>
     </S.FormItem>
   );
