@@ -42,7 +42,9 @@ export default function Login() {
   return (
     <S.Wrap>
       <S.Content>
-        <S.Title>LaGonave - Mhealth</S.Title>
+        <S.Title>
+          <S.LogoImg src="\m-health.png" alt="m-health logo" />
+        </S.Title>
         <S.StyledRadioGroup onChange={onChange} defaultValue={'staff'}>
           <S.StyledRadio value={'staff'}>Staff</S.StyledRadio>
           <S.StyledRadio value={'doctor'}>Doctor</S.StyledRadio>

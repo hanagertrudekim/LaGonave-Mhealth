@@ -12,19 +12,26 @@ export const Wrap = styled.div`
 export const Content = styled.div`
   width: 518px;
   height: 610px;
-  padding: 80px 118px;
+  padding: 60px 131px;
   box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
 `;
 
 export const Title = styled.div`
-  font-style: normal;
+   margin-bottom: 58px;
+
+  /* font-style: normal;
   font-weight: 600;
   font-size: 23px;
   color: black;
   margin-bottom: 85px;
   text-align: center;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Noto Sans', sans-serif; */
+`;
+
+export const LogoImg = styled.img`
+  width: 250px;
+  height: 80px;
 `;
 
 export const StyledRadioGroup = styled(Radio.Group)`
@@ -36,7 +43,8 @@ export const StyledRadio = styled(Radio)`
 `;
 
 export const StyledButton = styled(Button)`
-  background: #0078f0;
+  border-color: rgb(255 131 79);
+  background: rgb(255 131 79);
   border-radius: 5px;
   margin-top: 80px;
 `;
