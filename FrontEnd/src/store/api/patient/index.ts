@@ -4,7 +4,7 @@ import { PatientInfo, PatientTableInfo } from '../../../model/patient';
 
 export const patientApi = createApi({
   reducerPath: 'patient',
-  tagTypes: ['patient'],
+  tagTypes: ['patients', 'patient'],
   baseQuery: fetchBaseQuery({
     baseUrl: `${API_PATH}`,
   }),
@@ -13,7 +13,7 @@ export const patientApi = createApi({
 
     getPatients: builder.query<PatientTableInfo, number | null>({
       query: (phone_number) => ({ url: `/api/patients?phone_number=${phone_number}` }),
-      providesTags: ['patient'],
+      providesTags: ['patients'],
       keepUnusedDataFor: 5,
     }),
 

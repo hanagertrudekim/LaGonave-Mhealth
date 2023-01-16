@@ -1,12 +1,10 @@
 import React from 'react';
 import useStep from '../components/common/useStep';
-// import { useNavigate } from 'react-router-dom';
 import * as S from './RegisterPatient.style';
 import { REGISTER_VALIDATE_MESSAGE } from '../../../constant/validateMessage';
 import CustomForm from '../../../components/common/CustomForm';
 import { GENDER_OPTION } from '../../../constant';
 import usePatientMutation from '../usePatientMutation';
-// import { PatientInfo } from '../../../model/patient';
 
 export default function RegisterForm() {
   const { StepComponents } = useStep();
