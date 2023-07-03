@@ -29,7 +29,7 @@ function App() {
         <Route path="/doctor/home" element={<Doctor />} />
         <Route path="/patient/identification" element={<RegisterType />} />
         <Route path="/patient/register-form" element={<RegisterForm />} />
-        <Route path="/patient/diagnosis-form" element={<Diagnosis />} />
+        <Route path="/patient/diagnosis-form/:id" element={<Diagnosis />} />
         <Route path="/patient/search-patient" element={<SearchPatient />} />
       </Routes>
     </div>

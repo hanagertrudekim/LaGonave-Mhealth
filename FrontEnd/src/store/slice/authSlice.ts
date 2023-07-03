@@ -18,17 +18,17 @@ export const authSlice = createSlice({
   reducers: {
     setUser: (
       state,
-      action: PayloadAction<{ user_id: string; token: string }>,
+      action: PayloadAction<{ type: string; token: string }>,
     ) => {
       const cookies = new Cookies()
       cookies.set(
         "token",
         JSON.stringify({
-          name: action.payload.user_id,
+          name: action.payload.type,
           token: action.payload.token,
         })
       );
-      state.user_id = action.payload.user_id;
+      state.user_id = action.payload.type;
       state.token = action.payload.token;
     },
   },

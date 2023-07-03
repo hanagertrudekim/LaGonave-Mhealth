@@ -29,7 +29,7 @@ export default function Login() {
 
   useEffect(() => {
     if (isLoginSuccess) {
-      dispatch(setUser({ token: loginData.access_token, user_id: loginData.user_id }));
+      dispatch(setUser({ token: loginData.access_token, type: loginData.user_id }));
       value === 1 ? navigate('/patient/identification') : navigate('/doctor/home');
     }
   }, [isLoginSuccess, value, navigate, loginData, dispatch]);
